@@ -2,6 +2,7 @@ package ass2;
 
 import java.util.Scanner;
 
+//Computer class
 class Computer {
 	
 	Scanner sc1 = new Scanner(System.in);
@@ -12,12 +13,7 @@ class Computer {
 	int price;
 	int count = 0;
 	
-	
-	Computer()
-	{
-		
-	}
-	
+	//Setter method for all variable
 	void createComp()
 	{
 		System.out.println("Enter computer brand - ");
@@ -31,6 +27,7 @@ class Computer {
 		price = Integer.parseInt(sc1.nextLine());
 	}
 	
+	//printing data for particular objects
 	void getData(int i)
 	{
 		//System.out.println("What do you want to do?");
@@ -43,6 +40,7 @@ class Computer {
 
 	}
 	
+	//update methods
 	void updateBrand()
 	{
 		System.out.println("enter new brand - ");
@@ -55,25 +53,33 @@ class Computer {
 		this.model = sc1.nextLine();
 		System.out.println("updated successfully");
 	}
+	void updateSN()
+	{
+		System.out.println("enter new model - ");
+		this.SN = Integer.parseInt(sc1.nextLine());
+		System.out.println("updated successfully");
+	}
 	void updatePrice()
 	{
 		System.out.println("enter new price - ");
 		this.price = Integer.parseInt(sc1.nextLine());
 		System.out.println("updated successfully");
 	}
-	public static void print()
-	{
-		System.out.println("What do you want to do?");
-		System.out.println("	1. Enter new Computers(password required)");
-		System.out.println("	2. Change information of computer");
-		System.out.println("	3. Display all computer by specific brand");
-		System.out.println("	4. Display all computers under a certain price");
-		System.out.println("	5. Quit");
-		System.out.println("please enter your choice >");
-	}	
+	
+//	//Dialog box printing
+//	public static void print()
+//	{
+//		System.out.println("What do you want to do?");
+//		System.out.println("	1. Enter new Computers(password required)");
+//		System.out.println("	2. Change information of computer");
+//		System.out.println("	3. Display all computer by specific brand");
+//		System.out.println("	4. Display all computers under a certain price");
+//		System.out.println("	5. Quit");
+//		System.out.println("please enter your choice >");
+//	}	
 }
 
-
+// main class
 class Create
 {
 	final String password = "password";
@@ -82,6 +88,7 @@ class Create
 	Scanner sc2 = new Scanner(System.in);
 	Computer[] c1;
 	
+	//function holding switch method
 	public void funSwitch(int number)
 	{
 		switch(number)
@@ -108,6 +115,7 @@ class Create
 		}
 	}
 	
+	//switch method function 1
 	public void function1()
 	{
 		int count = 0;
@@ -147,6 +155,8 @@ class Create
 			loopWhile();
 		}
 	}
+	
+	//switch method function 2 
 	public void function2()
 	{
 		int count = 0;
@@ -183,9 +193,11 @@ class Create
 							c1[enter].getData(enter);
 							break;
 						case 3:
-							updateSN();
+							c1[enter].updateSN();
+							c1[enter].getData(enter);
 						case 4:
-							updatePrice();
+							c1[enter].updatePrice();
+							c1[enter].getData(enter);
 						case 5:
 							break;
 					}
@@ -221,22 +233,30 @@ class Create
 			loopWhile();
 		}
 	}
+	
+	//switch method function 3
 	public void function3()
 	{
+		String brandName = sc2.nextLine();
 		System.out.println("In funtion 3");
 		//in function3
 	}
+	
+	//switch method function 4
 	public void function4()
 	{
 		System.out.println("In funtion 4");
 		//in function4
 	}
+	
+	//switch method function 5
 	public void function5()
 	{
 		System.out.println("Good bye!!");
 		//in function5
 	}	
 	
+	//Dialog box printing
 	public static void print()
 	{
 		System.out.println("What do you want to do?");
@@ -248,6 +268,7 @@ class Create
 		System.out.println("please enter your choice >");
 	}
 	
+	//Getting store capacity and creating array for tracing
 	public void setComputer()
 	{
 		Scanner temp = new Scanner(System.in);
@@ -255,6 +276,7 @@ class Create
 		c1 = new Computer[maxComputer];
 	}
 	
+	//While loop for dialog box
 	public void loopWhile()
 	{
 		Scanner sc = new Scanner(System.in);
@@ -267,6 +289,8 @@ class Create
 		}
 		funSwitch(number);
 	}
+	
+	//main method
 	public static void main(String[] args)
 	{
 		
