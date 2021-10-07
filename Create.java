@@ -8,8 +8,8 @@ class Computer {
 	Scanner sc1 = new Scanner(System.in);
 	String brand;
 	String model;
-	static int serial=0;
-	int SN;
+	static long serial=0;
+	long SN;
 	int price;
 	int count = 0;
 	
@@ -36,8 +36,18 @@ class Computer {
 		System.out.println("Model: "+ this.model);
 		System.out.println("SN: " +this.SN);
 		System.out.println("Price: "+this.price);
-		System.out.println("please enter your choice >");
+		//System.out.println("please enter your choice >");
 
+	}
+	
+	public String getBrand()
+	{
+		return brand;
+	}
+	
+	public int getPrice()
+	{
+		return price;
 	}
 	
 	//update methods
@@ -101,11 +111,9 @@ class Create
 				break;
 			case 3:
 				function3();
-				System.out.println();
 				break;
 			case 4:
 				function4();
-				System.out.println();
 				break;
 			case 5:
 				function5();
@@ -179,7 +187,7 @@ class Create
 					System.out.println("	2.model");
 					System.out.println("	3.SN");
 					System.out.println("	4.price");
-					System.out.println("	5. Quit");
+					System.out.println("	5.Quit");
 					System.out.println("Enter you choice >");
 					int enterNum = Integer.parseInt(sc2.nextLine());
 					switch(enterNum)
@@ -237,15 +245,32 @@ class Create
 	//switch method function 3
 	public void function3()
 	{
+		System.out.println("Enter brand you are looking for - ");
 		String brandName = sc2.nextLine();
-		System.out.println("In funtion 3");
-		//in function3
+		for(int i=0;i<objectNum;i++)
+		{
+			if(brandName.equals(c1[i].getBrand()))
+			{
+				c1[i].getData(i);
+			}
+		}
+		loopWhile();
 	}
 	
 	//switch method function 4
 	public void function4()
 	{
-		System.out.println("In funtion 4");
+		//sc2.nextLine();
+		System.out.println("Enter the price - ");
+		int price = Integer.parseInt(sc2.nextLine());
+		for(int i=0;i<objectNum;i++)
+		{
+			if(price>(c1[i].getPrice()))
+			{
+				c1[i].getData(i);
+			}
+		}
+		loopWhile();
 		//in function4
 	}
 	
